@@ -1,0 +1,18 @@
+@hostname = http://localhost
+@port = 3000
+@url = {{hostname}}:{{port}}
+
+
+
+
+
+//Recuperar opiniones por ID
+###
+GET {{url}}/api/opinions/
+
+
+// Recuperar opiniones por ID de cada actividad
+###
+GET {{url}}/api/opinions/activity/12
+
+

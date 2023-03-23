@@ -1,0 +1,19 @@
+@hostname = http://localhost
+@port = 3000
+@url = {{hostname}}:{{port}}
+
+GET {{url}}/api/contacto/
+###
+POST {{url}}/api/contacto_empresas
+Content-Type: application/json
+
+{
+  "name": "cursos.sl",
+  "email": "cursosgmail.com",
+  "web":"www.cursos.com",
+  "city":"valencia",
+  "activity":"cursos",
+  "category_id":7,
+  "comment":"comentario",
+  "number":"********"
+}

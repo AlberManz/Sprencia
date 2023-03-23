@@ -1,0 +1,52 @@
+@hostname = http://localhost
+@port = 3000
+@url = {{hostname}}:{{port}}
+
+###
+GET {{url}}/api/activities/all
+//Recuperar actividades
+###
+GET {{url}}/api/activities?limit=20&page=1
+
+//Recupera un actividades específico
+###
+GET {{url}}/api/activities/2
+
+###
+GET {{url}}/api/activities/arte
+
+###
+GET {{url}}/api/activities/shift
+
+//Crear actividades
+###
+POST {{url}}/api/activities
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozNiwidXNlcl9yb2xlIjoiYWRtaW4iLCJleHAiOjE2NzgzODU0NjYsInByb3BpZWRhZCI6InByb3BpZWRhZCIsImlhdCI6MTY3Nzc4MDY2Nn0.M_5WL9FfL8fqaAC2THEsulijDpIvdETZ126hbb9meN4
+
+{
+  "title": "generación 21",
+  "description": "imagen",
+  "resume": "prueba",
+  "category": "Literatura",
+  "city": "Madrid",
+  "price": "180",
+  "shift": "tarde"
+}
+
+//Actualizar actividades
+###
+PUT {{url}}/api/activities/11
+Content-Type: application/json
+
+{
+
+"title": "Narración creativa",
+"category": "Literatura",
+"city": "Madrid",
+"price": "200",
+"shift": "am"
+
+}
+
+

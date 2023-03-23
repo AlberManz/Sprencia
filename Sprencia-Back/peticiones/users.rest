@@ -1,0 +1,65 @@
+@hostname = http://localhost
+@port = 3000
+@url = {{hostname}}:{{port}}
+
+###
+GET {{url}}/api/users/profile/24
+
+###
+GET {{url}}/api/users/activities-booked/24
+###
+
+GET {{url}}/api/users/activities-done/24
+
+###
+POST {{url}}/api/users/register
+Content-Type: application/json
+
+{
+  "name": "Belen",
+  "surname": "Gonzalez",
+  "email": "ge@mail.com",
+  "password": "12345",
+  "city": "Sevilla",
+  "birth_date":"1967-01-01"
+}
+
+###
+POST {{url}}/api/users/login
+Content-Type: application/json
+
+{
+  "email": "andres@mail.com",
+  "password":"12345"
+}
+
+###
+POST {{url}}/api/users/forget-password
+Content-Type: application/json
+
+{
+  "email": "ge@mail.com"
+}
+
+###
+POST {{url}}/api/users/create-admin
+Content-Type: application/json
+
+{
+  "name": "Rosa",
+  "surname": "Ron",
+  "email": "ro@mail.com",
+  "password": "12345",
+  "city": "madrid",
+  "birth_date": "1967-01-01"
+}
+
+###
+PUT {{url}}/api/users/reset-password
+Content-Type: application/json
+
+{
+  "email": "ge@mail.com",
+  "newPassword": "67890"
+}
+
