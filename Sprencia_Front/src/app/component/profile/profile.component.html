@@ -1,0 +1,42 @@
+<div class="container emp-profile">
+  <div class="row" *ngFor="let user of arrUsers">
+    <div class="col-md-4">
+      <div class="profile-img">
+        <img [src]="'http://localhost:3000/images/avatar/'+user.avatar" />
+        <div class="file btn btn-lg btn-primary">
+          Cambiar foto
+          <input type="file" name="file" />
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="profile-head">
+        <h5>
+          {{user.name | titlecase}} {{user.surname | titlecase}}
+        </h5>
+        <p class="profile-bday">CUMPLEAÑOS : <span>{{user.birth_date | date: 'dd/MM/y'}}</span></p>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Editar" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="act-done">
+        <p>ACTIVIDADES COMPLETADAS</p>
+        <ul *ngFor="let done of arrActivitiesDone">
+          <li>{{done.title | titlecase}}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="act-booked">
+        <p>PRÓXIMAS ACTIVIDADES</p>
+        <ul *ngFor="let booked of arrActivitiesBooked">
+          <li>{{booked.title | titlecase}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

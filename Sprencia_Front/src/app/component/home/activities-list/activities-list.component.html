@@ -1,0 +1,16 @@
+<div class="activities">
+  <h2 class="p-2">Actividades más populares</h2>
+  <div class="row">
+    <article class="d-flex col-6 col-md-4 col-lg-3 p-2" *ngFor="let activity of arrActivities">
+      <figure class="p-2">
+        <figcaption class="text-center">
+          {{ activity.title | titlecase }}
+        </figcaption>
+        <img class="image img-fluid img-thumbnail" [src]="'http://localhost:3000/images/' + activity.images[0]"
+          [alt]="activity.title" />
+      </figure>
+    </article>
+  </div>
+  <div class="d-flex justify-content-center mt-2">
+    <button class="button p-2 mb-3" [routerLink]="['/activities']">Ver más</button>
+  </div>

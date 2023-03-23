@@ -1,0 +1,15 @@
+<div class="card">
+  <div class="header">
+    <img [src]="'http://localhost:3000/images/'+activity.images[0]" class="img-fluid" [alt]="activity.title">
+  </div>
+  <div class="info">
+    <p class="title">{{activity.title | titlecase}}</p>
+    <p>{{activity.description | titlecase}}</p>
+    <p>{{activity.shift | titlecase}}</p>
+  </div>
+  <div class="footer">
+    <p class="tag">{{activity.price}}€</p>
+    <button class="button" [routerLink]="['/activity', activity.id]">Ver
+      más</button>
+  </div>
+</div>

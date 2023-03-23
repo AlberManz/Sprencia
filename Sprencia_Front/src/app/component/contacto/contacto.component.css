@@ -1,0 +1,71 @@
+.card {
+  margin-top: 20px;
+  margin-block: 30px;
+  display: block;
+  background: transparent;
+  position: relative;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.438);
+  overflow: hidden;
+  border-radius: 10px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+h2 {
+
+  cursor: default;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  letter-spacing: 2px;
+  color: #212121;
+  background-color: rgba(255, 255, 255, 0.074);
+  border: 1px solid rgba(255, 255, 255, 0.222);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border-radius: 10px;
+  transition: all ease .3s;
+}
+
+.card:after,
+.card:before {
+  width: 100px;
+  height: 100px;
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  transition: .5s linear;
+}
+
+.card:after {
+  top: -20px;
+  left: -20px;
+  background-color: rgba(57, 57, 57, 0.71);
+  animation: animFirst 5s linear infinite;
+}
+
+.card:before {
+  background-color: rgb(175, 173, 173);
+  top: 70%;
+  left: 70%;
+  animation: animSecond 5s linear infinite;
+  animation-delay: 3s;
+}
+
+.card:hover {
+  box-shadow: 0px 0px 10px rgba(57, 58, 57, 0.432)
+}
+
+.card:hover::after {
+  left: 80px;
+  transform: scale(1.2);
+}
+
+.card:hover::before {
+  left: -10px;
+  transform: scale(1.2);
+}

@@ -1,0 +1,75 @@
+<!-- Creamos los datos de contacto -->
+
+<div class="container">
+  <section class="text-center">
+    <h1>ATENCIÓN AL CLIENTE</h1>
+    <br>
+    <div class="card">
+      <div class="row text-center">
+        <h2>Correo Electrónico</h2>
+        <p>************@gmail.com</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="row text-center">
+        <h2>Teléfono</h2>
+        <p>*** *** ***</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="row text-center">
+        <h2>Whatsapp</h2>
+        <p>*** *** ***</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Formulario de Proveedores -->
+  <form class="form" [formGroup]="formulario" (ngSubmit)="onSubmit()">
+
+    <div class="form-group col-md-6 mt-5 mb-3">
+      <h2>Formulario de proveedores</h2>
+
+      <div class="form-group mb-3"> <label for="name">Nombre de la empresa</label> <input type="text"
+          class="form-control" formControlName="name" id="name">
+      </div>
+
+      <div class="form-group mb-3"> <label for="name">Email</label> <input type="text" class="form-control"
+          formControlName="email" id="email">
+      </div>
+
+      <div class="form-group mb-3"> <label for="web">Web</label> <input type="text" class="form-control"
+          formControlName="web" id="web">
+      </div>
+
+      <div class="form-group mb-3"> <label for="city">Ciudad</label> <input type="text" class="form-control"
+          formControlName="city" id="city">
+      </div>
+
+      <div class="form-group mb-3"> <label class="form-label">Categoría</label> <select class="form-select category"
+          (change)="getCategory($event)" formControlName="category">
+          <option selected disabled value="">Categoría</option>
+          <option *ngFor="let item of arrCategories" [value]="item.category"> {{ item.category | titlecase }}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group mb-3"> <label class="form-label">Actividad que desarrolla</label> <input
+          class="form-control" type="text" formControlName="activity">
+      </div>
+
+
+      <div class="form-group mb-3"> <label class="form-label">¿Porqué quiere ser proveedor de Sprencia</label> <textarea
+          class="form-control" type="text" formControlName="comment"></textarea>
+      </div>
+
+      <div class="form-group mb-3"> <label for="number">Numero de contacto</label> <input type="text"
+          class="form-control" formControlName="number" id="number">
+      </div>
+
+      <div class="btn"> <button class="button">Enviar</button>
+      </div>
+    </div>
+  </form>
+</div>

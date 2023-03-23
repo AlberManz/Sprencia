@@ -1,0 +1,96 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-0 offset-md-3">
+      <h2 class="heading">Registro usuario</h2>
+      <form class="form" novalidate [formGroup]="form" (ngSubmit)="onSubmit()">
+
+        <div class="form-group">
+          <label class="form-label">Nombre</label>
+          <input type="text" class="form-control" formControlName="name">
+          <p *ngIf="checkControl('name','required')">
+            <small class="text-danger">Campo obligatorio.</small>
+          </p>
+          <p *ngIf="checkControl('name', 'minlength')">
+            <small class="text-danger">Este campo necesita un mínimo de dos carácteres.</small>
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Apellidos</label>
+          <input type="text" class="form-control" formControlName="surname">
+          <p *ngIf="checkControl('surname', 'required')">
+            <small class="text-danger">Campo obligatorio.</small>
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Ciudad de residencia</label>
+          <input class="form-control" type="text" formControlName="city">
+          <p *ngIf="checkControl('city', 'required')">
+            <small class="text-danger">Campo obligatorio.</small>
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input type="text" class="form-control" formControlName="email">
+          <p *ngIf="checkControl('email', 'required')">
+            <small class="text-danger">Campo obligatorio.</small>
+          </p>
+          <p *ngIf="checkControl('email', 'pattern')">
+            <small class="text-danger">El email no tiene formato correcto.</small>
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">
+            Contraseña*
+          </label>
+          <input type="password" class="form-control" formControlName="password">
+          <p><small class="text-secondary">*La contraseña debe tener un mínimo de 6 caracteres, incluir una letra
+              mayúscula, una letra minúscula y un número.</small></p>
+          <p *ngIf="checkControl('password', 'required')">
+            <small class="text-danger">Campo obligatorio.</small>
+          </p>
+          <p *ngIf="checkControl('password', 'pattern')">
+            <small class="text-danger">La contraseña no cumple los requisitos.</small>
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Confirmar contraseña</label>
+          <input class="form-control" type="password" formControlName="confirmPassword">
+          <p *ngIf="checkControl('confirmPassword', 'required')">
+            <small class="text-danger">Campo obligatorio.</small>
+          </p>
+          <p *ngIf="form.hasError('passwordcompare') &&
+                form.get('confirmPassword')?.touched">
+            <small class="text-danger">Las contraseñas no coinciden.</small>
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Fecha de nacimiento</label>
+          <input type="date" class="form-control" formControlName="birth_date">
+          <p *ngIf="checkControl('birth_date', 'required')">
+            <small class="text-danger">Campo obligatorio.</small>
+          </p>
+        </div>
+
+        <div class="form-group mb-3">
+          <label class="form-label">Avatar</label>
+          <input type="file" class="form-control" (change)="upload($event)">
+
+        </div>
+
+        <div class="btn">
+          <input [disabled]="!form.valid" type="submit" value="Enviar" class="button mb-5">
+        </div>
+        <p class="d-flex justify-content-center text-danger fw-bold mt-3" *ngIf="errorMessage">
+          Se ha producido un error. Inténtalo de nuevo.
+        </p>
+
+      </form>
+    </div>
+  </div>
+</div>

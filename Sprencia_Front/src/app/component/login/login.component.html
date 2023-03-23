@@ -1,0 +1,27 @@
+<div class="row mt-2">
+  <div class="col-md-6 offset-md-3">
+    <p class="heading">Accede a tu cuenta</p>
+    <form class="form" [formGroup]="forms" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="text" class="form-control" formControlName="email" />
+        <p *ngIf="checkControl('email', 'required')">
+          <small class="text-danger">Campo obligatorio.</small>
+        </p>
+      </div>
+      <div>
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" formControlName="password" />
+        <p *ngIf="checkControl('password', 'required')">
+          <small class="text-danger">Campo obligatorio.</small>
+        </p>
+      </div>
+      <div class="btn">
+        <input type="submit" value="Acceder" class="button" />
+        <button class="button" [routerLink]="['/register']">Registrarse</button>
+      </div>
+      <button class="button" [routerLink]="['/forget-password']">¿Olvidaste la contraseña?</button>
+      <p class="error text-danger mt-3">{{errorMessage}}</p>
+    </form>
+  </div>
+</div>

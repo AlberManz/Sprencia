@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box
+}
+
+.activities {
+  width: 80%;
+  max-width: 800px;
+  margin: 50px auto;
+  background: linear-gradient(to bottom, #fff, #dcdcdc);
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.192);
+  border-radius: 10px;
+
+}
+
+figure .image {
+  object-fit: cover;
+  display: block;
+  box-shadow: 0 10px 15px -3px rgba(77, 86, 77, .4), 0 4px 6px -4px rgba(77, 86, 77, .4);
+}
+
+/* Media-query */
+
+@media (max-width:417px) {
+  h2 {
+    font-size: 1rem;
+  }
+
+  figcaption {
+    font-size: 0.6rem;
+  }
+
+  button {
+    font-size: 0.6rem;
+  }
+
+}

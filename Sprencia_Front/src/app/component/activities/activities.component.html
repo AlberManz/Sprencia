@@ -1,0 +1,85 @@
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <!-- Filtros -->
+
+    <div class=" filtro col-12 col-sm-3 col-lg-2 mb-2 mt-lg-2">
+      <select [(ngModel)]="categoryValue" defaultValue="" class="form-select category" (change)="getCategory($event)">
+        <option selected disabled value="">Categoría</option>
+        <option *ngFor="let item of arrCategories" [value]="item.category">
+          {{item.category | titlecase}}
+        </option>
+      </select>
+    </div>
+
+    <div class="filtro col-12 col-sm-3 col-lg-2 mb-2 mt-lg-2">
+      <select [(ngModel)]="cityValue" defaultValue="" class="form-select city" (change)="getCity($event)">
+        <option selected disabled value="">Ciudad</option>
+        <option *ngFor="let item of arrCities" [value]="item.city">
+          {{item.city | titlecase}}
+        </option>
+      </select>
+    </div>
+
+    <div class="filtro col-12 col-sm-3 col-lg-2 mb-2 mt-lg-2">
+      <select [(ngModel)]="shiftValue" defaultValue="" class="form-select shift" (change)="getShift($event)">
+        <option selected disabled value="">Turno</option>
+        <option *ngFor="let item of arrShift" [value]="item.shift">
+          {{item.shift | titlecase}}
+        </option>
+      </select>
+    </div>
+
+
+    <!-- Botones -->
+
+    <div class="row justify-content-center">
+      <button
+        class="col-5 col-sm-3 col-md-2 col-lg-2 mx-sm-2 mt-2 mt-md-0 mt-lg-2 ms-md-5 text-center btn btn-dark btn-sm text-center me-1"
+        (click)="filter()">
+        Filtrar
+      </button>
+      <button
+        class="col-auto col-sm-auto col-md-auto col-lg-auto mt-2 mx-sm-2 mt-md-0 mx-md-0 mt-lg-2 btn btn-dark btn-sm text-center"
+        (click)="delete()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg"
+          viewBox="0 0 16 16">
+          <path
+            d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+        </svg>
+      </button>
+    </div>
+
+  </div>
+
+  <div class="d-flex justify-content-end mt-3 mt-md-2">
+    <button class="col-12 col-sm-2 col-lg-1 btn btn-light btn-sm w-auto" (click)="sortProducts()">
+      Precio {{ sortOrder === 'desc' ? '⬇' :
+      '⬆' }}</button>
+  </div>
+
+
+  <!-- Actividades componetizadas en card component para su reutilización -->
+
+  <section class="row" *ngIf="!showFilteredActivities">
+    <article *ngFor="let activity of arrActivities" class="col-6 col-md-4 col-lg-3 g-3">
+      <app-card [activity]="activity"></app-card>
+    </article>
+  </section>
+
+  <!-- Actividades filtradas -->
+
+  <ng-container *ngIf="showFilteredActivities">
+    <div class="row">
+      <article *ngFor="let activity of filteredActivities" class="col-6 col-md-4 col-lg-3 g-3">
+        <app-card [activity]="activity"></app-card>
+      </article>
+    </div>
+  </ng-container>
+
+  <!-- Mensaje si no hay resultados -->
+  <div class="d-flex justify-content-center">
+    <h4 class="text-danger">{{message}}</h4>
+  </div>
+</div>
+<ngx-scrolltop [size]="40" backgroundColor="#212121" symbolColor="#fafafa" mode="smart" position="right" theme="gray">
+</ngx-scrolltop>

@@ -1,0 +1,16 @@
+p {
+  margin-top: 20px;
+  margin-left: 25px;
+  font-weight: 800;
+  font-size: 1rem;
+  display: block;
+}
+
+h2 {
+  margin-top: 50px;
+  margin-block: 20px;
+}
+
+button {
+  margin: 10px;
+}

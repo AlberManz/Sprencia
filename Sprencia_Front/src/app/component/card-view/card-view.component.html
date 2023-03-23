@@ -1,0 +1,29 @@
+<!-- Obtenemos todas las actividades de la base de datos y sus imagenes-->
+
+<section class="container">
+  <div class="row">
+    <nav class="text-bg-dark p-3">
+      <h1 class="d-flex justify-content-center">{{activity?.title | titlecase}}</h1>
+
+      <div class="container">
+        <div class="d-flex justify-content-center">
+          <div *ngFor="let image of arrImagenes">
+            <img class="img-thumbnail" alt="activity" width="304" height="236"
+              [src]="'http://localhost:3000/images/'+image">
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <div class="d-flex m-3">
+    <button class="button me-3" [routerLink]="['/activities']">Volver a todas las actividades</button>
+    <button class="button">Comprar</button>
+  </div>
+</section>
+<section class="card">
+  <div class="container d-flex justify-content-center">
+    <h2>Opiniones</h2>
+
+  </div>
+</section>
